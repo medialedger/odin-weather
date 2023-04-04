@@ -39,31 +39,31 @@
 			<span class="hi-low"></span>
 		</h2>
 		<div class="hourly">
-			<h3>Hourly forecast</h3>
+			<h3><span>Hourly forecast</span></h3>
 			<ol></ol>
 		</div>
 		<div class="forecast">
-			<h3>3-day forecast</h3>
+			<h3><svg width="16" height="16"><use href="#icon-forecast"></use></svg> <span>3-day forecast</span></h3>
 			<ol></ol>
 		</div>
 		<div class="wind">
-			<h3>Wind</h3>
+			<h3><svg width="16" height="16"><use href="#icon-wind"></use></svg> <span>Wind</span></h3>
 			<div class="dial">
 				<svg width="272" height="272" class="circle"><use href="#wind-circle"></use></svg>
-				<svg width="32" height="272" class="arrow"><use href="#wind-arrow"></use></svg>
-				<span class="wind-text"><span class="wind-number">0</span> mph</span>
+				<svg width="272" height="272" class="arrow"><use href="#wind-arrow"></use></svg>
+				<span class="dial-text"><span class="dial-number">0</span> mph</span>
 			</div>
 		</div>
 		<div class="pressure">
-			<h3>Pressure</h3>
+			<h3><svg width="16" height="16"><use href="#icon-pressure"></use></svg> <span>Pressure</span></h3>
 			<div class="dial">
 				<svg width="272" height="272" class="circle"><use href="#pressure-circle"></use></svg>
 				<svg width="272" height="272" class="arrow"><use href="#pressure-arrow"></use></svg>
-				<span class="pressure-text"><span class="pressure-number">0</span> inHg</span>
+				<span class="dial-text"><span class="dial-number">0</span> inHg</span>
 			</div>
 		</div>
 		<div class="aqi">
-			<h3>Air Quality</h3>
+			<h3><svg width="16" height="16"><use href="#icon-aqi"></use></svg> <span>Air Quality</span></h3>
 			<span class="number">&nbsp;</span>
 			<span class="description"></span>
 			<div class="bar">
@@ -71,30 +71,41 @@
 			</div>
 		</div>
 		<div class="uv">
-			<h3>UV Index</h3>
+			<h3><svg width="16" height="16"><use href="#icon-sun"></use></svg> <span>UV Index</span></h3>
 			<span class="number"></span>
 			<span class="description"></span>
 			<div class="bar">
 				<div class="marker"></div>
 			</div>
 		</div>
-		<div class="sunset">
-			<h3>Sunrise</h3>
+		<div class="sun">
+			<h3><svg width="16" height="16" class="icon-sunrise"><use href="#icon-sunrise"></use></svg><svg width="16" height="16" class="icon-sunset"><use href="#icon-sunset"></use></svg> <span class="sun-text">Sunrise</span></h3>
+			<span class="number"></span>
+			<div class="bar">
+				<div class="marker"></div>
+			</div>
+			<span class="description"></span>
 		</div>
 		<div class="precip">
-			<h3>Precipitation</h3>
+			<h3><svg width="16" height="16"><use href="#icon-precip"></use></svg> <span>Precipitation</span></h3>
+			<span class="number"></span>
+			<span class="description"></span>
 		</div>
 		<div class="feels">
-			<h3>Feels like</h3>
+			<h3><svg width="16" height="16"><use href="#icon-feelsLike"></use></svg> <span>Feels like</span></h3>
+			<span class="number"></span>
 		</div>
 		<div class="humidity">
-			<h3>Humidity</h3>
+			<h3><svg width="16" height="16"><use href="#icon-humidity"></use></svg> <span>Humidity</span></h3>
+			<span class="number"></span>
 		</div>
 		<div class="vis">
-			<h3>Visibility</h3>
+			<h3><svg width="16" height="16"><use href="#icon-visibility"></use></svg> <span>Visibility</span></h3>
+			<span class="number"></span>
 		</div>
 		<div class="cloud">
-			<h3>Clouds</h3>
+			<h3><svg width="16" height="16"><use href="#icon-clouds"></use></svg> <span>Clouds</span></h3>
+			<span class="number"></span>
 		</div>
 	</main>
 	<svg xmlns="http://www.w3.org/2000/svg" style="display:none;" aria-hidden="true">
@@ -115,8 +126,8 @@
 			<path d="M8,134l0,4l16,0l0,-4l-16,0Z" style="fill:#fff;"/>
 			<path d="M248,134l0,4l16,0l0,-4l-16,0Z" style="fill:#fff;"/>
 		</symbol>
-		<symbol id="wind-arrow" viewBox="0 0 24 204">
-			<path d="M14.25,132l0,54.284c3.88,1 6.75,4.526 6.75,8.716c0,4.968 -4.032,9 -9,9c-4.967,0 -9,-4.032 -9,-9c-0,-4.19 2.87,-7.716 6.75,-8.716l-0,-54.284l4.5,0Zm-4.5,-60l-0,-63.386l-6.284,6.284l-3.182,-3.182l11.716,-11.716l11.716,11.716l-3.182,3.182l-6.284,-6.284l0,63.386l-4.5,-0Zm6.75,123c0,-2.483 -2.016,-4.5 -4.5,-4.5c-2.483,-0 -4.5,2.017 -4.5,4.5c-0,2.484 2.017,4.5 4.5,4.5c2.484,-0 4.5,-2.016 4.5,-4.5Z" style="fill:#fff;"/>
+		<symbol id="wind-arrow" viewBox="0 0 272 272">
+			<path d="M139,188l0,60.379c5.173,1.333 9,6.034 9,11.621c0,6.624 -5.376,12 -12,12c-6.623,0 -12,-5.376 -12,-12c0,-5.587 3.827,-10.288 9,-11.621l0,-60.379l6,0Zm-6,-104l0,-72.515l-8.379,8.379l-4.242,-4.243l15.621,-15.621l15.621,15.621l-4.242,4.243l-8.379,-8.379l-0,72.515l-6,0Zm9,176c-0,-3.311 -2.688,-6 -6,-6c-3.311,0 -6,2.689 -6,6c-0,3.312 2.689,6 6,6c3.312,0 6,-2.688 6,-6Z" style="fill:#fff;"/>
 		</symbol>
 		<symbol id="pressure-circle" viewBox="0 0 272 272">
 			<path d="M45.508,226.492c-23.169,-23.169 -37.508,-55.169 -37.508,-90.492c0,-70.645 57.355,-128 128,-128c70.645,0 128,57.355 128,128c0,35.323 -14.339,67.323 -37.508,90.492l-11.312,-11.312c20.274,-20.273 32.82,-48.273 32.82,-79.18c0,-61.814 -50.186,-112 -112,-112c-61.814,0 -112,50.186 -112,112c0,30.907 12.546,58.907 32.82,79.18l-11.312,11.312Z" style="fill:#fff;fill-opacity:0.4;"/>
@@ -134,6 +145,53 @@
 			<defs>
 				<linearGradient id="pressure-arrow-gradient" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(51.314,-8.17124e-14,2.64147e-14,16.588,110.343,26.9577)"><stop offset="0" style="stop-color:#fff;stop-opacity:0"/><stop offset="0.5" style="stop-color:#fff;stop-opacity:0.4"/><stop offset="1" style="stop-color:#fff;stop-opacity:0"/></linearGradient>
 			</defs>
+		</symbol>
+		<symbol id="icon-forecast" viewBox="0 0 448 512">
+			<path fill="currentColor" d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"/>
+		</symbol>
+		<symbol id="icon-sun" viewBox="0 0 512 512">
+			<path fill="currentColor" d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"/>
+		</symbol>
+		<symbol id="icon-sunrise" viewBox="0 0 576 512">
+			<path fill="currentColor" d="M250.9 374.5c-20.6 8.5-36.3 23.5-46.6 41.5h167.2c-23.8-41.6-75.1-60.3-120.6-41.5zM80.7 416h87.6c.2-.5.2-1 .4-1.4 27.3-65.8 102.9-97.2 168.7-69.9 33.4 13.8 57.8 40.2 70.3 71.3h87.6l28.4-32.7c9.4-10.9 2.4-27.9-12-28.9l-106.5-7.6-7.6-106.5c-1-14.4-18-21.4-28.9-12l-80.7 70-80.7-70c-10.9-9.4-27.9-2.4-28.9 12l-7.6 106.5-106.5 7.6c-14.4 1-21.4 18-12 28.9L80.7 416zM560 464H16c-8.8 0-16 7.2-16 16v16c0 8.8 7.2 16 16 16h544c8.8 0 16-7.2 16-16v-16c0-8.8-7.2-16-16-16zM190.8 128H256v80c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-80h65.2c14.3 0 21.4-17.3 11.2-27.4L300 5c-6.6-6.6-17.4-6.6-24 0l-96.4 95.7c-10.2 10-3 27.3 11.2 27.3z"/>
+		</symbol>
+		<symbol id="icon-sunset" viewBox="0 0 576 512">
+			<path fill="currentColor" d="M250.9 374.5c-20.6 8.5-36.3 23.5-46.6 41.5h167.2c-23.8-41.6-75.1-60.3-120.6-41.5zM80.7 416h87.6c.2-.5.2-1 .4-1.4 27.3-65.8 102.9-97.2 168.7-69.9 33.4 13.8 57.8 40.2 70.3 71.3h87.6l28.4-32.7c9.4-10.9 2.4-27.9-12-28.9l-106.5-7.6-7.6-106.5c-1-14.4-18-21.4-28.9-12l-80.7 70-80.7-70c-10.9-9.4-27.9-2.4-28.9 12l-7.6 106.5-106.5 7.6c-14.4 1-21.4 18-12 28.9L80.7 416zM560 464H16c-8.8 0-16 7.2-16 16v16c0 8.8 7.2 16 16 16h544c8.8 0 16-7.2 16-16v-16c0-8.8-7.2-16-16-16zM276 219c6.6 6.6 17.4 6.6 24 0l96.4-95.7c10.1-10.1 3-27.4-11.3-27.4H320V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v80h-65.2c-14.3 0-21.4 17.3-11.2 27.4L276 219z"/>
+		</symbol>
+		<symbol id="icon-wind" viewBox="0 0 512 512">
+			<path fill="currentColor" d="M156.7 256H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h142.2c15.9 0 30.8 10.9 33.4 26.6 3.3 20-12.1 37.4-31.6 37.4-14.1 0-26.1-9.2-30.4-21.9-2.1-6.3-8.6-10.1-15.2-10.1H81.6c-9.8 0-17.7 8.8-15.9 18.4 8.6 44.1 47.6 77.6 94.2 77.6 57.1 0 102.7-50.1 95.2-108.6C249 291 205.4 256 156.7 256zM16 224h336c59.7 0 106.8-54.8 93.8-116.7-7.6-36.2-36.9-65.5-73.1-73.1-55.4-11.6-105.1 24.9-114.9 75.5-1.9 9.6 6.1 18.3 15.8 18.3h32.8c6.7 0 13.1-3.8 15.2-10.1C325.9 105.2 337.9 96 352 96c19.4 0 34.9 17.4 31.6 37.4-2.6 15.7-17.4 26.6-33.4 26.6H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16zm384 32H243.7c19.3 16.6 33.2 38.8 39.8 64H400c26.5 0 48 21.5 48 48s-21.5 48-48 48c-17.9 0-33.3-9.9-41.6-24.4-2.9-5-8.7-7.6-14.5-7.6h-33.8c-10.9 0-19 10.8-15.3 21.1 17.8 50.6 70.5 84.8 129.4 72.3 41.2-8.7 75.1-41.6 84.7-82.7C526 321.5 470.5 256 400 256z"/>
+		</symbol>
+		<symbol id="icon-precip" viewBox="0 0 448 512">
+			<path fill="currentColor" d="M216 136.3c0-34.9-31.8-47.9-46.7-97.4-2.5-9-15.7-9.4-18.6 0-14.9 49.3-46.7 62.7-46.7 97.4 0 30.8 25 55.7 56 55.7s56-24.9 56-55.7zM46.7 230.9C31.8 280.2 0 293.6 0 328.3 0 359.1 25 384 56 384s56-24.9 56-55.7c0-34.9-31.8-47.9-46.7-97.4-2.5-9-15.7-9.4-18.6 0zm294.5-87.7c-5.8-19.8-36-20.7-42.5 0C264.7 251.6 192 281.1 192 357.6c0 67.7 57.2 122.4 128 122.4s128-54.8 128-122.4c0-76.9-72.6-105.5-106.8-214.4z"/>
+		</symbol>
+		<symbol id="icon-feelsLike" viewBox="0 0 256 512">
+			<path fill="currentColor" d="M192 384c0 35.346-28.654 64-64 64-35.346 0-64-28.654-64-64 0-23.685 12.876-44.349 32-55.417V160c0-17.673 14.327-32 32-32s32 14.327 32 32v168.583c19.124 11.068 32 31.732 32 55.417zm32-84.653c19.912 22.563 32 52.194 32 84.653 0 70.696-57.303 128-128 128-.299 0-.609-.001-.909-.003C56.789 511.509-.357 453.636.002 383.333.166 351.135 12.225 321.755 32 299.347V96c0-53.019 42.981-96 96-96s96 42.981 96 96v203.347zM208 384c0-34.339-19.37-52.19-32-66.502V96c0-26.467-21.533-48-48-48S80 69.533 80 96v221.498c-12.732 14.428-31.825 32.1-31.999 66.08-.224 43.876 35.563 80.116 79.423 80.42L128 464c44.112 0 80-35.888 80-80z"/>
+		</symbol>
+		<symbol id="icon-humidity" viewBox="0 0 384 512">
+			<path fill="currentColor" d="M223.9 22.1c-8.7-28.8-53.9-30.1-63.8 0C109.1 179.8 0 222.7 0 333.9 0 432.3 85.9 512 192 512s192-79.7 192-178.1c0-111.7-108.9-153.3-160.1-311.8zM96 288c0-17.7 14.3-32 32-32s32 14.3 32 32-14.3 32-32 32-32-14.3-32-32zm49.5 131.8c-2.8 3.5-7.8 4-11.2 1.2l-12.5-10c-3.4-2.8-4-7.8-1.2-11.2l118-147.5c2.8-3.4 7.8-4 11.2-1.2l12.5 10c3.5 2.8 4 7.8 1.2 11.2l-118 147.5zM256 416c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/>
+		</symbol>
+		<symbol id="icon-visibility" viewBox="0 0 576 512">
+			<path fill="currentColor" d="M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z"/>
+		</symbol>
+		<symbol id="icon-pressure" viewBox="0 0 512 512">
+			<path fill="currentColor" d="M256,8c-137,0 -248,111 -248,248c0,137 111,248 248,248c137,0 248,-111 248,-248c0,-137 -111,-248 -248,-248Zm0,448c-110.5,0 -200,-89.5 -200,-200c0,-110.5 89.5,-200 200,-200c110.5,0 200,89.5 200,200c0,110.5 -89.5,200 -200,200Z" style="fill-rule:nonzero;"/>
+			<circle fill="currentColor" cx="256" cy="388" r="40"/>
+			<circle fill="currentColor" cx="256" cy="116" r="24"/>
+			<path fill="currentColor" d="M338,113.972c11.471,6.623 15.408,21.313 8.785,32.784c-6.623,11.472 -21.314,15.408 -32.785,8.785c-11.471,-6.623 -15.408,-21.313 -8.785,-32.785c6.623,-11.471 21.314,-15.407 32.785,-8.784Z"/>
+			<path fill="currentColor" d="M398.028,174c6.623,11.471 2.687,26.162 -8.784,32.785c-11.472,6.623 -26.162,2.686 -32.785,-8.785c-6.623,-11.471 -2.687,-26.162 8.785,-32.785c11.471,-6.623 26.161,-2.686 32.784,8.785Z"/>
+			<path fill="currentColor" d="M174,113.972c11.471,-6.623 26.162,-2.687 32.785,8.784c6.623,11.472 2.686,26.162 -8.785,32.785c-11.471,6.623 -26.162,2.687 -32.785,-8.785c-6.623,-11.471 -2.686,-26.161 8.785,-32.784Z"/>
+			<path fill="currentColor" d="M113.972,174c6.623,-11.471 21.313,-15.408 32.784,-8.785c11.472,6.623 15.408,21.314 8.785,32.785c-6.623,11.471 -21.313,15.408 -32.785,8.785c-11.471,-6.623 -15.407,-21.314 -8.784,-32.785Z"/>
+			<path fill="currentColor" d="M274,210c0,-9.934 -8.066,-18 -18,-18c-9.934,0 -18,8.066 -18,18l0,168c0,9.934 8.066,18 18,18c9.934,0 18,-8.066 18,-18l0,-168Z"/>
+		</symbol>
+		<symbol id="icon-aqi" viewBox="0 0 512 512">
+			<circle fill="currentColor"cx="65.226" cy="146" r="24"/><circle fill="currentColor"cx="65.226" cy="256" r="24"/><circle fill="currentColor"cx="65.226" cy="366" r="24"/>
+			<circle fill="currentColor"cx="160.613" cy="91" r="24"/><circle fill="currentColor"cx="160.613" cy="201" r="24"/><circle fill="currentColor"cx="160.613" cy="311" r="24"/><circle fill="currentColor"cx="160.613" cy="421" r="24"/>
+			<circle fill="currentColor"cx="256" cy="36" r="24"/><circle fill="currentColor"cx="256" cy="146" r="24"/><circle fill="currentColor"cx="256" cy="256" r="24"/><circle fill="currentColor"cx="256" cy="366" r="24"/><circle fill="currentColor"cx="256" cy="36" r="24"/><circle fill="currentColor"cx="256" cy="476" r="24"/>
+			<circle fill="currentColor"cx="351.387" cy="91" r="24"/><circle fill="currentColor"cx="351.387" cy="201" r="24"/><circle fill="currentColor"cx="351.387" cy="311" r="24"/><circle fill="currentColor"cx="351.387" cy="421" r="24"/>
+			<circle fill="currentColor"cx="446.774" cy="146" r="24"/><circle fill="currentColor"cx="446.774" cy="256" r="24"/><circle fill="currentColor"cx="446.774" cy="366" r="24"/>
+		</symbol>
+		<symbol id="icon-clouds" viewBox="0 0 640 512">
+			<path fill="currentColor" d="M544 320c-.6 0-1.1.2-1.6.2 1.1-5.2 1.6-10.6 1.6-16.2 0-44.2-35.8-80-80-80-24.6 0-46.3 11.3-61 28.8-18.6-35.9-55.8-60.8-99-60.8-61.9 0-112 50.1-112 112 0 7.3.8 14.3 2.1 21.2-38.3 12.6-66.1 48.3-66.1 90.8 0 53 43 96 96 96h320c53 0 96-43 96-96s-43-96-96-96zM304 160c40.7 0 78.6 17.2 105.4 46.5 9.8-5.6 20.5-9.4 31.6-11.8 4.3-10.8 7-22.3 7-34.7 0-53-43-96-96-96-14.1 0-27.4 3.2-39.5 8.7C296.6 30.3 256 0 208 0 151.6 0 105.3 41.9 97.6 96.2c-.5 0-1-.2-1.6-.2-53 0-96 43-96 96s43 96 96 96h65.6c8.1-71.8 68.5-128 142.4-128z"/>
 		</symbol>
 	</svg>
 	<script type="module" src="./main.js"></script>

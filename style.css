@@ -1,6 +1,7 @@
 html {
 	box-sizing: border-box;
 	font-family: 'Open Sans', sans-serif;
+	font-size: clamp(.8rem, .5rem + .75vw , 2.4rem);
 }
 *, *::before, *::after {
 	box-sizing: inherit;
@@ -91,6 +92,8 @@ body {
 		align-content: start;
 		padding: 4em;
 	}
+
+
 	main .now {
 		grid-column: span 4;
 	}
@@ -130,14 +133,23 @@ body {
 		text-transform: uppercase;
 		opacity: .5;
 		letter-spacing: .1em;
-		margin: 0 0 1em 0;
+		margin: 0 0 .8em 0;
+		line-height: 1;
+		display: flex;
+		gap: .6em;
+		align-items: center;
+	}
+	main h3 svg {
+		display: block;
+		height: .8em;
+		width: auto;
 	}
 	.hourly ol {
 		display: flex;
 		overflow-x: scroll;
 		margin: 0;
 		list-style-type: none;
-		padding: 0 0 1.5em 0;
+		padding: .5em 0 1.5em 0;
 		gap: 1.5em;
 		scroll-snap-type: x mandatory;
 	}
@@ -163,8 +175,9 @@ body {
 		padding: 1.5em;
 		background-color: hsla(0, 0%, 0%, .25);
 		border-radius: .5em;
+		line-height: 1.2;
 	}
-	main > .hourly {
+	main > div.hourly {
 		padding-bottom: .5em;
 	}
 	.forecast ol {
@@ -195,51 +208,21 @@ body {
 	}
 	.forecast .hi-low hr {
 		width: 100%;
-		height: 1px;
+		height: .2em;
+		border-radius: 1em;
 		border: none;
 		background-color: hsla(0, 0%, 100%, .25);
 	}
-	.wind .dial {
+	main .dial {
 		position: relative;
 	}
-	.wind .circle {
+	main .circle {
 		display: block;
 		width: 100%;
 		height: auto;
 		opacity: .4;
 	}
-	.wind .arrow {
-		display: block;
-		height: 100%;
-		width: auto;
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-	.wind .wind-text {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		font-size: .8em;
-		line-height: 1.1;
-		text-align: center;
-	}
-	.wind .wind-number {
-		display: block;
-		font-size: 1.5em;
-	}
-	.pressure .dial {
-		position: relative;
-	}
-	.pressure .circle {
-		display: block;
-		width: 100%;
-		height: auto;
-		opacity: .4;
-	}
-	.pressure .arrow {
+	main .arrow {
 		display: block;
 		width: 100%;
 		height: auto;
@@ -247,7 +230,7 @@ body {
 		top: 0;
 		left: 0;
 	}
-	.pressure .pressure-text {
+	main .dial-text {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -255,57 +238,55 @@ body {
 		font-size: .8em;
 		line-height: 1.1;
 		text-align: center;
+		font-weight: 300;
 	}
-	.pressure .pressure-number {
+	main .dial-number {
+		display: block;
+		font-size: 1.5em;
+		font-weight: 600;
+	}
+	main .number {
 		display: block;
 		font-size: 1.5em;
 	}
-	.aqi .number {
+	main .description {
 		display: block;
+		font-size: .8em;
+		font-weight: 300;
 	}
-	.aqi .description {
+	main .bar {
 		display: block;
-	}
-	.aqi .bar {
-		display: block;
-		height: 2px;
-		background-image: linear-gradient(to right, green, yellow, orange, red, purple, maroon);
-		position: relative;
-		margin-top: 1em;
-	}
-	.aqi .marker {
-		display: block;
-		width: .5em;
-		height: .5em;
-		border-radius: 50%;
-		background-color: #fff;
-		position: absolute;
-		transform: translateY(-50%);
-		top: 0;
-		left: 0;
-	}
-	.uv .number {
-		display: block;
-	}
-	.uv .description {
-		display: block;
-	}
-	.uv .bar {
-		display: block;
-		height: 2px;
+		height: .2em;
 		background-image: linear-gradient(to right, green, yellow, orange, red, purple);
 		position: relative;
 		margin-top: 1em;
+		border-radius: 1em;
 	}
-	.uv .marker {
+	main .marker {
 		display: block;
 		width: .5em;
 		height: .5em;
 		border-radius: 50%;
 		background-color: #fff;
 		position: absolute;
-		transform: translateY(-50%);
+		transform: translateY(-.15em);
 		top: 0;
 		left: 0;
+	}
+	main .aqi .bar {
+		background-image: linear-gradient(to right, green, yellow, orange, red, purple, maroon);
+	}
+	main .sun .bar {
+		height: .4em;
+		margin: 1em 0;
+	}
+	main .sun .marker {
+		transform: translateY(-.05em);
+	}
+	main .sun .hidden {
+		display: none;
+	}
+	main .precip .description {
+		margin-top: 1em;
 	}
 }
