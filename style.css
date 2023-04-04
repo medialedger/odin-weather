@@ -13,19 +13,225 @@ body {
 	margin: 0;
 }
 
+header {
+	display: none;
+}
+main {
+	background-color: hsla(0, 0%, 0%, .4);
+	color: #fff;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1em;
+	align-content: start;
+	padding: 2em;
+}
+main .now {
+	grid-column: span 2;
+}
+main .hourly {
+	grid-column: span 2;
+}
+main .forecast {
+	grid-column: span 2;
+}
+
+main h2 {
+	font-weight: 300;
+	font-size: 8em;
+	margin: 0;
+	line-height: 1;
+	text-align: center;
+	margin-bottom: .2em;
+}
+main h2 .name {
+	display: block;
+	font-size: .3em;
+}
+main h2 .temp {
+	letter-spacing: -.05em;
+}
+main h2 .condition {
+	display: block;
+	font-size: .125em;
+}
+main h2 .hi-low {
+	display: block;
+	font-size: .125em;
+	margin-top: .4em;
+}
+main h3 {
+	font-size: .8em;
+	font-weight: normal;
+	text-transform: uppercase;
+	opacity: .5;
+	letter-spacing: .1em;
+	margin: 0 0 .8em 0;
+	line-height: 1;
+	display: flex;
+	gap: .6em;
+	align-items: center;
+}
+main h3 svg {
+	display: block;
+	height: .8em;
+	width: auto;
+}
+.hourly ol {
+	display: flex;
+	overflow-x: scroll;
+	margin: 0;
+	list-style-type: none;
+	padding: .5em 0 1.5em 0;
+	gap: 1.5em;
+	scroll-snap-type: x mandatory;
+}
+.hourly ol li {
+	flex-shrink: 0;
+	text-align: center;
+	scroll-snap-align: start;
+}
+.hourly .hour {
+	display: block;
+	font-size: .8em;
+}
+.hourly img {
+	display: block;
+	width: 3em;
+	height: auto;
+	margin: .4em auto;
+}
+.hourly .temp {
+	display: block;
+}
+main > div:not(.now) {
+	padding: 1.5em;
+	background-color: hsla(0, 0%, 0%, .25);
+	border-radius: .5em;
+	line-height: 1.2;
+}
+main > div.hourly {
+	padding-bottom: .5em;
+}
+.forecast ol {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.forecast ol li {
+	display: flex;
+	align-items: center;
+	gap: 10%;
+	justify-content: space-between;
+}
+.forecast .date {
+	width: 2.2em;
+}
+.forecast img {
+	display: block;
+	width: 3em;
+	height: auto;
+}
+.forecast .hi-low {
+	width: calc(80% - 6.7em);
+	text-align: right;
+	gap: .5em;
+	display: flex;
+	align-items: center;
+}
+.forecast .hi-low hr {
+	width: 100%;
+	height: .2em;
+	border-radius: 1em;
+	border: none;
+	background-color: hsla(0, 0%, 100%, .25);
+}
+main .dial {
+	position: relative;
+}
+main .circle {
+	display: block;
+	width: 100%;
+	height: auto;
+	opacity: .4;
+}
+main .arrow {
+	display: block;
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+main .dial-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: .8em;
+	line-height: 1.1;
+	text-align: center;
+	font-weight: 300;
+}
+main .dial-number {
+	display: block;
+	font-size: 1.5em;
+	font-weight: 600;
+}
+main .number {
+	display: block;
+	font-size: 1.5em;
+}
+main .description {
+	display: block;
+	font-size: .8em;
+	font-weight: 300;
+}
+main .bar {
+	display: block;
+	height: .2em;
+	background-image: linear-gradient(to right, green, yellow, orange, red, purple);
+	position: relative;
+	margin-top: 1em;
+	border-radius: 1em;
+}
+main .marker {
+	display: block;
+	width: .5em;
+	height: .5em;
+	border-radius: 50%;
+	background-color: #fff;
+	position: absolute;
+	transform: translateY(-.15em);
+	top: 0;
+	left: 0;
+}
+main .aqi .bar {
+	background-image: linear-gradient(to right, green, yellow, orange, red, purple, maroon);
+}
+main .sun .bar {
+	height: .4em;
+	margin: 1em 0;
+}
+main .sun .marker {
+	transform: translateY(-.05em);
+}
+main .sun .hidden {
+	display: none;
+}
+main .precip .description {
+	margin-top: 1em;
+}
+
 @media screen and (min-width: 1024px) {
 	body {
 		display: grid;
 		grid-template-columns: 18em 1fr;
 	}
 	header {
+		display: block;
 		background-color: hsla(0, 0%, 0%, .6);
 		color: #fff;
 		padding: 1.5em;
-	}
-	main {
-		background-color: hsla(0, 0%, 0%, .4);
-		color: #fff;
 	}
 	h1 {
 		font-weight: 300;
@@ -86,14 +292,9 @@ body {
 		margin: 2em 0 1em;
 	}
 	main {
-		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
-		gap: 1em;
-		align-content: start;
 		padding: 4em;
 	}
-
-
 	main .now {
 		grid-column: span 4;
 	}
@@ -102,191 +303,5 @@ body {
 	}
 	main .forecast {
 		grid-column: span 2;
-	}
-	main h2 {
-		font-weight: 300;
-		font-size: 8em;
-		margin: 0;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: .2em;
-	}
-	main h2 .name {
-		display: block;
-		font-size: .3em;
-	}
-	main h2 .temp {
-		letter-spacing: -.05em;
-	}
-	main h2 .condition {
-		display: block;
-		font-size: .125em;
-	}
-	main h2 .hi-low {
-		display: block;
-		font-size: .125em;
-		margin-top: .4em;
-	}
-	main h3 {
-		font-size: .8em;
-		font-weight: normal;
-		text-transform: uppercase;
-		opacity: .5;
-		letter-spacing: .1em;
-		margin: 0 0 .8em 0;
-		line-height: 1;
-		display: flex;
-		gap: .6em;
-		align-items: center;
-	}
-	main h3 svg {
-		display: block;
-		height: .8em;
-		width: auto;
-	}
-	.hourly ol {
-		display: flex;
-		overflow-x: scroll;
-		margin: 0;
-		list-style-type: none;
-		padding: .5em 0 1.5em 0;
-		gap: 1.5em;
-		scroll-snap-type: x mandatory;
-	}
-	.hourly ol li {
-		flex-shrink: 0;
-		text-align: center;
-		scroll-snap-align: start;
-	}
-	.hourly .hour {
-		display: block;
-		font-size: .8em;
-	}
-	.hourly img {
-		display: block;
-		width: 3em;
-		height: auto;
-		margin: .4em auto;
-	}
-	.hourly .temp {
-		display: block;
-	}
-	main > div:not(.now) {
-		padding: 1.5em;
-		background-color: hsla(0, 0%, 0%, .25);
-		border-radius: .5em;
-		line-height: 1.2;
-	}
-	main > div.hourly {
-		padding-bottom: .5em;
-	}
-	.forecast ol {
-		margin: 0;
-		padding: 0;
-		list-style-type: none;
-	}
-	.forecast ol li {
-		display: flex;
-		align-items: center;
-		gap: 10%;
-		justify-content: space-between;
-	}
-	.forecast .date {
-		width: 2.2em;
-	}
-	.forecast img {
-		display: block;
-		width: 3em;
-		height: auto;
-	}
-	.forecast .hi-low {
-		width: calc(80% - 6.7em);
-		text-align: right;
-		gap: .5em;
-		display: flex;
-		align-items: center;
-	}
-	.forecast .hi-low hr {
-		width: 100%;
-		height: .2em;
-		border-radius: 1em;
-		border: none;
-		background-color: hsla(0, 0%, 100%, .25);
-	}
-	main .dial {
-		position: relative;
-	}
-	main .circle {
-		display: block;
-		width: 100%;
-		height: auto;
-		opacity: .4;
-	}
-	main .arrow {
-		display: block;
-		width: 100%;
-		height: auto;
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-	main .dial-text {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		font-size: .8em;
-		line-height: 1.1;
-		text-align: center;
-		font-weight: 300;
-	}
-	main .dial-number {
-		display: block;
-		font-size: 1.5em;
-		font-weight: 600;
-	}
-	main .number {
-		display: block;
-		font-size: 1.5em;
-	}
-	main .description {
-		display: block;
-		font-size: .8em;
-		font-weight: 300;
-	}
-	main .bar {
-		display: block;
-		height: .2em;
-		background-image: linear-gradient(to right, green, yellow, orange, red, purple);
-		position: relative;
-		margin-top: 1em;
-		border-radius: 1em;
-	}
-	main .marker {
-		display: block;
-		width: .5em;
-		height: .5em;
-		border-radius: 50%;
-		background-color: #fff;
-		position: absolute;
-		transform: translateY(-.15em);
-		top: 0;
-		left: 0;
-	}
-	main .aqi .bar {
-		background-image: linear-gradient(to right, green, yellow, orange, red, purple, maroon);
-	}
-	main .sun .bar {
-		height: .4em;
-		margin: 1em 0;
-	}
-	main .sun .marker {
-		transform: translateY(-.05em);
-	}
-	main .sun .hidden {
-		display: none;
-	}
-	main .precip .description {
-		margin-top: 1em;
 	}
 }

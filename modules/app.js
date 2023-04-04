@@ -167,5 +167,5 @@ function renderClouds(data) {
 }
 async function renderBgImage(time, curr) {
 	const bgImage = await getImage(time, curr.feelslike_f, curr.condition.text, curr.precip_mm, curr.wind_mph);
-	document.querySelector('body').style.backgroundImage = `url(${bgImage.results[0].urls.full})`;
+	document.querySelector('body').style.backgroundImage = `url(${bgImage.urls.full})`;
 }

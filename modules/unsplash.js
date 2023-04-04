@@ -44,7 +44,8 @@ export async function getImage(localtime, temp, condition, precip, wind) {
 		}
 	}
 	try {
-		const response = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=1&collections=N2PUsiNO9sg,136095,893395&query=${keywords}&orientation=landscape&client_id=y9VLj3xlyLy6sfo0TxhaJTca_-p9-4OWWPTDszFBD94`);
+		// const response = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=1&collections=N2PUsiNO9sg,136095,893395&query=${keywords}&orientation=landscape&client_id=y9VLj3xlyLy6sfo0TxhaJTca_-p9-4OWWPTDszFBD94`);
+		const response = await fetch(`https://api.unsplash.com/photos/random?query=${keywords}&orientation=landscape&client_id=y9VLj3xlyLy6sfo0TxhaJTca_-p9-4OWWPTDszFBD94`);
 		return response.json();
 	} catch (error) {
 		console.log(error);
