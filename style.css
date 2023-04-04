@@ -1,0 +1,311 @@
+html {
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
+body {
+	background-size: cover;
+	min-height: 100vh;
+	margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+	body {
+		display: grid;
+		grid-template-columns: 18em 1fr;
+	}
+	header {
+		background-color: hsla(0, 0%, 0%, .6);
+		color: #fff;
+		padding: 1.5em;
+	}
+	main {
+		background-color: hsla(0, 0%, 0%, .4);
+		color: #fff;
+	}
+	h1 {
+		font-weight: 300;
+		font-size: 2em;
+		margin: 0;
+		line-height: 1;
+	}
+	header form {
+		margin: 1em 0;
+		display: flex;
+		align-items: center;
+		gap: .5em;
+	}
+	header form input[type="search"] {
+		background-color: transparent;
+		border: 1px solid #fff;
+		border-width: 0 0 1px 0;
+		color: #fff;
+		font-weight: 300;
+		padding: .5em 0;
+		font-size: 1em;
+		font-family: inherit;
+	}
+	header form input[type="search"]::placeholder {
+		font-weight: 300;
+	}
+	header form button {
+		background-color: transparent;
+		border: none;
+		color: inherit;
+		padding: .5em;
+		font-size: 1em;
+	}
+	header form button svg {
+		display: block;
+		width: 1em;
+		height: auto;
+	}
+	header .locations {
+		margin: 2em 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	header .locations li {
+		border: 1px solid currentColor;
+		border-radius: .5em;
+		padding: 1em;
+		font-weight: 300;
+	}
+	header .locations h3 {
+		font-size: 1.2em;
+		font-weight: 600;
+		margin: 0;
+	}
+	header h2 {
+		font-size: 1em;
+		font-weight: 600;
+		margin: 2em 0 1em;
+	}
+	main {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 1em;
+		align-content: start;
+		padding: 4em;
+	}
+	main .now {
+		grid-column: span 4;
+	}
+	main .hourly {
+		grid-column: span 4;
+	}
+	main .forecast {
+		grid-column: span 2;
+	}
+	main h2 {
+		font-weight: 300;
+		font-size: 8em;
+		margin: 0;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: .2em;
+	}
+	main h2 .name {
+		display: block;
+		font-size: .3em;
+	}
+	main h2 .temp {
+		letter-spacing: -.05em;
+	}
+	main h2 .condition {
+		display: block;
+		font-size: .125em;
+	}
+	main h2 .hi-low {
+		display: block;
+		font-size: .125em;
+		margin-top: .4em;
+	}
+	main h3 {
+		font-size: .8em;
+		font-weight: normal;
+		text-transform: uppercase;
+		opacity: .5;
+		letter-spacing: .1em;
+		margin: 0 0 1em 0;
+	}
+	.hourly ol {
+		display: flex;
+		overflow-x: scroll;
+		margin: 0;
+		list-style-type: none;
+		padding: 0 0 1.5em 0;
+		gap: 1.5em;
+		scroll-snap-type: x mandatory;
+	}
+	.hourly ol li {
+		flex-shrink: 0;
+		text-align: center;
+		scroll-snap-align: start;
+	}
+	.hourly .hour {
+		display: block;
+		font-size: .8em;
+	}
+	.hourly img {
+		display: block;
+		width: 3em;
+		height: auto;
+		margin: .4em auto;
+	}
+	.hourly .temp {
+		display: block;
+	}
+	main > div:not(.now) {
+		padding: 1.5em;
+		background-color: hsla(0, 0%, 0%, .25);
+		border-radius: .5em;
+	}
+	main > .hourly {
+		padding-bottom: .5em;
+	}
+	.forecast ol {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	.forecast ol li {
+		display: flex;
+		align-items: center;
+		gap: 10%;
+		justify-content: space-between;
+	}
+	.forecast .date {
+		width: 2.2em;
+	}
+	.forecast img {
+		display: block;
+		width: 3em;
+		height: auto;
+	}
+	.forecast .hi-low {
+		width: calc(80% - 6.7em);
+		text-align: right;
+		gap: .5em;
+		display: flex;
+		align-items: center;
+	}
+	.forecast .hi-low hr {
+		width: 100%;
+		height: 1px;
+		border: none;
+		background-color: hsla(0, 0%, 100%, .25);
+	}
+	.wind .dial {
+		position: relative;
+	}
+	.wind .circle {
+		display: block;
+		width: 100%;
+		height: auto;
+		opacity: .4;
+	}
+	.wind .arrow {
+		display: block;
+		height: 100%;
+		width: auto;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	.wind .wind-text {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: .8em;
+		line-height: 1.1;
+		text-align: center;
+	}
+	.wind .wind-number {
+		display: block;
+		font-size: 1.5em;
+	}
+	.pressure .dial {
+		position: relative;
+	}
+	.pressure .circle {
+		display: block;
+		width: 100%;
+		height: auto;
+		opacity: .4;
+	}
+	.pressure .arrow {
+		display: block;
+		width: 100%;
+		height: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.pressure .pressure-text {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: .8em;
+		line-height: 1.1;
+		text-align: center;
+	}
+	.pressure .pressure-number {
+		display: block;
+		font-size: 1.5em;
+	}
+	.aqi .number {
+		display: block;
+	}
+	.aqi .description {
+		display: block;
+	}
+	.aqi .bar {
+		display: block;
+		height: 2px;
+		background-image: linear-gradient(to right, green, yellow, orange, red, purple, maroon);
+		position: relative;
+		margin-top: 1em;
+	}
+	.aqi .marker {
+		display: block;
+		width: .5em;
+		height: .5em;
+		border-radius: 50%;
+		background-color: #fff;
+		position: absolute;
+		transform: translateY(-50%);
+		top: 0;
+		left: 0;
+	}
+	.uv .number {
+		display: block;
+	}
+	.uv .description {
+		display: block;
+	}
+	.uv .bar {
+		display: block;
+		height: 2px;
+		background-image: linear-gradient(to right, green, yellow, orange, red, purple);
+		position: relative;
+		margin-top: 1em;
+	}
+	.uv .marker {
+		display: block;
+		width: .5em;
+		height: .5em;
+		border-radius: 50%;
+		background-color: #fff;
+		position: absolute;
+		transform: translateY(-50%);
+		top: 0;
+		left: 0;
+	}
+}
