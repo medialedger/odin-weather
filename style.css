@@ -105,7 +105,7 @@ main h3 svg {
 }
 main > div:not(.now) {
 	padding: 1.5em;
-	background-color: hsla(0, 0%, 0%, .25);
+	background-color: hsla(0, 0%, 0%, .4);
 	border-radius: .5em;
 	line-height: 1.2;
 }
@@ -290,6 +290,10 @@ main .precip .description {
 		font-size: 1em;
 		font-weight: 600;
 		margin: 2em 0 1em;
+	}
+	header .saved {
+		display: grid;
+		gap: .6em;
 	}
 	main {
 		grid-template-columns: 1fr 1fr 1fr 1fr;

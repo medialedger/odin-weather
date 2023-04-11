@@ -1,10 +1,12 @@
 import { getForecast } from './weather.js';
+import { renderSavedLoc } from './locations.js';
 import { getImage } from './unsplash.js';
 
 export async function renderCurrent() {
 	async function success(pos) {
 		const currentData = await getForecast(`${pos.coords.latitude},${pos.coords.longitude}`, 3);
 		renderPage(currentData);
+		renderCurrentLocData(currentData.location, currentData.current, currentData.forecast.forecastday[0].day);
 	}
 	function error(err) {
 		console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -13,7 +15,7 @@ export async function renderCurrent() {
 }
 
 export function renderPage(data) {
-	renderCurrentLocData(data.location, data.current, data.forecast.forecastday[0].day);
+	renderLocData(data.location, data.current, data.forecast.forecastday[0].day);
 	renderHourly(data.forecast.forecastday[0].hour);
 	renderForecast(data.forecast.forecastday);
 	renderWind(data.current);
@@ -29,13 +31,18 @@ export function renderPage(data) {
 	renderBgImage(data.location.localtime, data.current);
 }
 function renderCurrentLocData(loc, curr, fore) {
-	document.querySelector('header .current .name').innerText = loc.name;
+	const currLoc = document.querySelector('header .current');
+	currLoc.querySelector('li').dataset.location = `${loc.lat},${loc.lon}`;
+	currLoc.querySelector('.name').innerText = loc.name;
+	currLoc.querySelector('.condition').innerText = curr.condition.text;
+	currLoc.querySelector('.temp').innerText = `${Math.round(curr.temp_f)}°`;
+	currLoc.querySelector('.hi-low').innerText = `H:${Math.round(fore.maxtemp_f)}° L:${Math.round(fore.mintemp_f)}°`;
+	currLoc.addEventListener('click', renderSavedLoc);
+}
+function renderLocData(loc, curr, fore) {
 	document.querySelector('.now .name').innerText = loc.name;
-	document.querySelector('header .current .condition').innerText = curr.condition.text;
 	document.querySelector('.now .condition').innerText = curr.condition.text;
-	document.querySelector('header .current .temp').innerText = `${Math.round(curr.temp_f)}°`;
 	document.querySelector('.now .temp').innerText = `${Math.round(curr.temp_f)}°`;
-	document.querySelector('header .current .hi-low').innerText = `H:${Math.round(fore.maxtemp_f)}° L:${Math.round(fore.mintemp_f)}°`;
 	document.querySelector('.now .hi-low').innerText = `H:${Math.round(fore.maxtemp_f)}° L:${Math.round(fore.mintemp_f)}°`;
 }
 function renderHourly(data) {
@@ -47,6 +54,7 @@ function renderHourly(data) {
 		const thisTime = new Date(hour.time);
 		hourlyHtml += `<li><span class="hour">${hourlyTimeFormat.format(thisTime)}</span><img src="${hour.condition.icon}" alt="${hour.condition.text}"><span class="temp">${Math.round(hour.temp_f)}°</span></li>`;
 	})
+	document.querySelector('.hourly ol').innerHTML = '';
 	document.querySelector('.hourly ol').insertAdjacentHTML('afterbegin', hourlyHtml);
 }
 function renderForecast(data) {
@@ -58,6 +66,7 @@ function renderForecast(data) {
 		const thisTime = new Date(`${day.date} 00:00`);
 		forecastHtml += `<li><span class="date">${forecastDateFormat.format(thisTime)}</span><img src="${day.day.condition.icon}" alt="${day.day.condition.text}"><span class="hi-low"><span class="low">${Math.round(day.day.mintemp_f)}°</span><hr><span class="high">${Math.round(day.day.maxtemp_f)}°</span></span></li>`;
 	})
+	document.querySelector('.forecast ol').innerHTML = '';
 	document.querySelector('.forecast ol').insertAdjacentHTML('afterbegin', forecastHtml);
 }
 function renderWind(data) {
